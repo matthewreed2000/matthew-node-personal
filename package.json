@@ -1,0 +1,24 @@
+{
+  "name": "matthew-node-personal",
+  "version": "1.0.0",
+  "description": "A personal project, written in NodeJS, for BYU-I's CS313 course",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewreed2000/matthew-node-personal.git"
+  },
+  "author": "Matthew A Reed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewreed2000/matthew-node-personal/issues"
+  },
+  "homepage": "https://github.com/matthewreed2000/matthew-node-personal#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
