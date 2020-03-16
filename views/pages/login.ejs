@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Shop - Login</title>
+  <%- include('../partials/head.ejs'); %>
+</head>
+<body>
+  <%- include('../partials/header.ejs'); %>
+  <main class="container-fluid">
+    <form action="login-confirm" method="POST" id="loginForm" accept-charset="utf-8" class="container">
+      <div class="form-group">
+        <input type="text" name="username" id="loginUser" class="form-control" value="" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" id="loginPass" class="form-control" value="" placeholder="Password" required>
+      </div>
+      <div id="loginInfo" class="invalid-feedback">
+        <p>The login information provided does not match our datase</p>
+      </div>
+      <button type="submit" id="loginButton" class="btn btn-primary">Log In</button>
+    </form>
+  </main>
+  <%- include('../partials/footer.ejs'); %>
+  <script src="/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS item_data;
+DROP TABLE IF EXISTS user_data;
+
+CREATE TABLE user_data (
+   ID          SERIAL         NOT NULL PRIMARY KEY,
+   Username    VARCHAR(100)   NOT NULL UNIQUE,
+   Password    VARCHAR(100)   NOT NULL,
+   Display_Name VARCHAR(100)   NOT NULL
+);
+
+CREATE TABLE item_data (
+   ID          SERIAL      NOT NULL PRIMARY KEY,
+   NAME        VARCHAR(50) NOT NULL,
+   DESCRIPTION TEXT        NOT NULL
+);

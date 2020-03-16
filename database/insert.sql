@@ -1,0 +1,1 @@
+INSERT INTO user_data (username, password, display_name) VALUES ('test', '$2b$10$h8HZL52yFDofJchxBZvf0.cQum3hZUfLqKCJlfOHRMlAUKzaDGQvm', 'Test User'); -- password

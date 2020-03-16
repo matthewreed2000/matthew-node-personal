@@ -1,18 +1,50 @@
 const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const PORT = process.env.PORT || 5000;
+
+const loginConfirm = require('./controllers/login-confirm');
+
 let app = express();
 
-app.set('port', process.env.PORT || 5000)
-  // set up directory for static files
-  .use(express.static(__dirname + '/public'))
-  // set where are dynamic views will be stored
-  .set('views', __dirname + '/views')
-  // set default view engine
-  .set('view engine', 'ejs')
-  // set default route and content
-  // .get('/', function(req, res) {
-  //   res.sendFile('form.html', {root: __dirname + "/public"});
-  // })
-  // run localhost
-  .listen(app.get('port'), function() {
-    console.log('Listening on port: ' + app.get('port'));
-  });
+// Set up server
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(session({ secret: 'com.heroku.matthew-node-personal', cookie: { maxAge: 60000 }}));
+app.set('views', path.join(__dirname, '/views'));
+app.set('view engine', 'ejs');
+// set default route and content
+// .get('/', function(req, res) {
+//   res.sendFile('form.html', {root: __dirname + "/public"});
+// })
+// run localhost
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Set up pages
+app.get('/', (req, res) => res.render('pages/index', loginConfirm.testSession(req)));
+app.get('/login', (req, res) => res.render('pages/login', loginConfirm.testSession(req)));
+app.post('/login-confirm', loginConfirm.run);
+
+app.use(function(req, res, next){
+  res.status(404);
+
+  // respond with html page
+  if (req.accepts('html')) {
+    res.render('pages/errors/404', { url: req.url });
+    return;
+  }
+
+  // respond with json
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+
+  // default to plain-text. send()
+  res.type('txt').send('Not found');
+});
+
+app.listen(PORT, function() {
+  console.log('Listening on port: ' + PORT);
+});

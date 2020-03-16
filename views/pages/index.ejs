@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Shop - Home</title>
+  <%- include('../partials/head.ejs'); %>
+</head>
+<body>
+  <%- include('../partials/header.ejs'); %>
+  <main class="container-fluid">
+    <% if (success) { %>
+      <p>Welcome, <%= displayName %></p>
+    <% } else { %>
+      <p>Welcome, guest user</p>
+    <% } %>
+  </main>
+  <%- include('../partials/footer.ejs'); %>
+  <script src="/js/login.js"></script>
+</body>
+</html>
