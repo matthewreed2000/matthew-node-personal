@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Golden Glint - Cart</title>
+  <%- include('../partials/head.ejs'); %>
+  <script src="/js/cart.js"></script>
+</head>
+<body>
+  <%- include('../partials/header.ejs'); %>
+  <main class="container-fluid">
+    <% if (typeof items !== 'undefined') { %>
+      <div class="row d-flex f-start">
+        <% items.forEach(item => { %>
+          <figure class="card card-product">
+            <div class="img-wrap">
+              <img src="<%= item.image_url %>" alt="Image for <%= item.name %>">
+            </div>
+            <figcaption class="info-wrap">
+              <h4 class="title"><%= item.name %></h4>
+              <p class="desc"><%= item.description %></p>
+            </figcaption>
+            <div class="bottom-wrap">
+              <span class="price-new">$<%= (item.price / 100.0).toFixed(2) %></span>
+              <% if (success) { %>
+                <button type="button" onclick="removeFromCart(this, <%= item.id %>);"
+                  class="btn btn-sm btn-danger float-right">Remove From Cart</button>
+              <% } else { %>
+                <a href="/login" class="btn btn-sm btn-primary float-right">Remove From Cart</a>
+              <% } %>
+            </div>
+          </figure>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="row">
+        <p>There are no items currently in your cart.</p>
+      </div>
+    <% } %>
+    <div class="row d-flex justify-content-center">
+      <a href="/shop" class="btn btn-sm btn-primary">Return to Shop</a>
+      <% if (typeof items !== 'undefined') { %>
+        <a href="/confirm" class="btn btn-sm btn-success">Proceed to Checkout</a>
+      <% } %>
+    </div>
+  </main>
+  <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

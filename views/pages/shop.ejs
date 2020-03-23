@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Golden Glint - Shop</title>
+  <%- include('../partials/head.ejs'); %>
+  <script src="/js/shop.js"></script>
+</head>
+<body>
+  <%- include('../partials/header.ejs'); %>
+  <main class="container-fluid">
+    <div class="d-flex f-start">
+      <% if (typeof items !== 'undefined') { %>
+        <% items.forEach(item => { %>
+          <figure class="card card-product">
+            <div class="img-wrap">
+              <img src="<%= item.image_url %>" alt="Image for <%= item.name %>">
+            </div>
+            <figcaption class="info-wrap">
+              <h4 class="title"><%= item.name %></h4>
+              <p class="desc"><%= item.description %></p>
+            </figcaption>
+            <div class="bottom-wrap">
+              <span class="price-new">$<%= (item.price / 100.0).toFixed(2) %></span>
+              <% if (success) { %>
+                <button type="button" onclick="addToCart(this, <%= item.id %>);"
+                  class="btn btn-sm btn-primary float-right">Add to Cart</button>
+              <% } else { %>
+                <a href="/login" class="btn btn-sm btn-primary float-right">Add to Cart</a>
+              <% } %>
+            </div>
+          </figure>
+        <% }); %>
+      <% } else { %>
+        <p>There are no items currently available.</p>
+      <% } %>
+    </div>
+  </main>
+  <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

@@ -3,7 +3,7 @@
   --header-text-color: #d2dae2;
   --main-bg-color: #d2dae2;
   --main-text-color: #1e272e;
-  --secondary-bg-color: #7692ff;
+  --secondary-bg-color: #ffffff;
   --secondary-text-color: #abd2fa;
   --tertiary-bg-color: #6cae75;
   --tertiary-text-color: #d2dae2;
@@ -37,4 +37,83 @@ body {
 .invalid-feedback {
   display: none;
   color: red;
+}
+
+/* https://bootsnipp.com/snippets/R5r9A */
+.card-product .img-wrap {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  position: relative;
+  /*height: 220px;*/
+  text-align: center;
+}
+.card-product .img-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+.card-product .info-wrap {
+  overflow: hidden;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+.card-product .bottom-wrap {
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.label-rating {
+  margin-right:10px;
+  color: #333;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.card-product .price-old {
+  color: #999;
+}
+/**/
+
+.card-product {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 220px;
+  max-width: 100%;
+  margin: 10px;
+  background-color: var(--secondary-bg-color);
+}
+
+/*.navbar > div li {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}*/
+
+.float-right {
+  float: right;
+}
+
+.float-bottom {
+  position: relative;
+  bottom: 0;
+}
+
+.d-flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.f-start {
+  align-items: flex-start;
+}
+
+.hidden {
+  display: none;
 }

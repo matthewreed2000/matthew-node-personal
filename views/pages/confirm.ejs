@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Golden Glint - Confirmation</title>
+  <%- include('../partials/head.ejs'); %>
+</head>
+<body>
+  <%- include('../partials/header.ejs'); %>
+  <main class="container-fluid">
+    <% if (typeof items !== 'undefined') { %>
+    <ul class="list-group">
+      <% items.forEach(item => { %>
+        <li class="list-group-item">
+          <img src="<%= item.image_url %>" alt="<%= item.name %>" width="100">
+          <span><%= item.name %></span>
+          <span class="float-right">$<%= (item.price / 100.0).toFixed(2) %></span>
+        </li>
+      <% }); %>
+      <li class="list-group-item">
+        <span>Tax:</span>
+        <span class="float-right">$<%= (tax / 100.0).toFixed(2) %></span>
+      </li>
+      <li class="list-group-item">
+        <span>Shipping:</span>
+        <span class="float-right">$<%= (shipping / 100.0).toFixed(2) %></span>
+      </li>
+      <li class="list-group-item">
+        <span>Total:</span>
+        <strong class="float-right">$<%= (total / 100.0).toFixed(2) %></strong>
+      </li>
+    </ul>
+    <% } else { %>
+    <% } %>
+  </main>
+  <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

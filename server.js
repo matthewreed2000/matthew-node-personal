@@ -25,6 +25,12 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => res.render('pages/index', loginConfirm.testSession(req)));
 app.get('/login', (req, res) => res.render('pages/login', loginConfirm.testSession(req)));
 app.post('/login-confirm', loginConfirm.run);
+app.get('/logout', require('./controllers/logout').run);
+app.get('/shop', require('./controllers/shop').run);
+app.get('/addCartItem', require('./controllers/add-cart-item').run);
+app.get('/removeCartItem', require('./controllers/remove-cart-item').run);
+app.get('/cart', require('./controllers/cart').run);
+app.get('/confirm', require('./controllers/confirm').run);
 
 app.use(function(req, res, next){
   res.status(404);

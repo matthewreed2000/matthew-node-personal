@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shopping Shop - Home</title>
+  <title>Golden Glint - Home</title>
   <%- include('../partials/head.ejs'); %>
 </head>
 <body>
   <%- include('../partials/header.ejs'); %>
   <main class="container-fluid">
-    <% if (success) { %>
-      <p>Welcome, <%= displayName %></p>
-    <% } else { %>
-      <p>Welcome, guest user</p>
-    <% } %>
+    <p>This is <strong>NOT</strong> the official website for The Golden Glint. Please visit
+      <a href="https://www.thegoldenglint.com/">the official website</a> to actually place
+      an order.</p>
   </main>
   <%- include('../partials/footer.ejs'); %>
-  <script src="/js/login.js"></script>
 </body>
 </html>

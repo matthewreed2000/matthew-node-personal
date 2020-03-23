@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Golden Glint - Receipt</title>
+  <%- include('../partials/head.ejs'); %>
+</head>
+<body>
+  <%- include('../partials/header.ejs'); %>
+  <main class="container-fluid">
+    <% if (success && total) { %>
+      <div class="row">
+        <h1>Thank you, <%= display_name %>. Your order for $<% (total / 100.0).toFixed(2) %>
+          has been placed.</h1>
+      </div>
+    <% } %>
+    <div class="row">
+      <a href="/" class="btn btn-primary">Return to Home Page</a>
+    </div>
+  </main>
+  <%- include('../partials/footer.ejs'); %>
+</body>
+</html>

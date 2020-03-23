@@ -1,1 +1,6 @@
 INSERT INTO user_data (username, password, display_name) VALUES ('test', '$2b$10$h8HZL52yFDofJchxBZvf0.cQum3hZUfLqKCJlfOHRMlAUKzaDGQvm', 'Test User'); -- password
+
+-- INSERT INTO item_data (name, description, price, image_url) VALUES ('', '', 0, '');
+INSERT INTO item_data (name, description) VALUES ('TestItem', 'This item is here for testing purposes');
+INSERT INTO item_data (name, description, price, image_url) VALUES ('Journal Letter Z', 'Size: 9 x 7 inches', 2900, 'https://static.wixstatic.com/media/3607e3_7d86926e7abf42888d9b824b22e71c80~mv2.jpg/v1/fill/w_294,h_294,al_c,q_80,usm_0.66_1.00_0.01/3607e3_7d86926e7abf42888d9b824b22e71c80~mv2.webp');
+INSERT INTO item_data (name, description, price, image_url) VALUES ('Stone Slate - Nauvoo Temple XL Edition', 'Size: 12 x 12 inches', 6900, 'https://static.wixstatic.com/media/3607e3_34d51aefefd249c0bf19c77bf87eace5~mv2_d_2528_2471_s_4_2.jpg/v1/fill/w_181,h_181,al_c,q_80,usm_0.66_1.00_0.01/3607e3_34d51aefefd249c0bf19c77bf87eace5~mv2_d_2528_2471_s_4_2.webp');

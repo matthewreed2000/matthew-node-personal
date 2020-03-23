@@ -2,15 +2,33 @@
   <nav class="navbar navbar-default navbar-static-top navbar-inverse">
     <div class="container">
       <ul class="nav navbar-nav">
-        <li class="active">
+        <li>
+          <a href="/"><img src="https://static.wixstatic.com/media/3607e3_5defce8567954c5c99a9b81c94843cb2~mv2.png/v1/fill/w_127,h_68,al_c,q_85,usm_0.66_1.00_0.01/GG_LLC_new_02-19.webp" alt="Golden Glint Icon"></a>
+        </li>
+        <li>
           <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+        </li>
+        <li>
+          <a href="/shop"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-right">
+        <li>
+          <a href="https://www.thegoldenglint.com/">
+            <span class="glyphicon glyphicon-globe"></span> Official Website
+          </a>
+        </li>
+        <li class="dropdown">
           <% if (typeof success !== 'undefined') if (success) { %>
             <!-- This will become a dropdown with the option to log out -->
-            <a href="#"><span class="glyphicon glyphicon-user"></span> <%= displayName %></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+              aria-expanded="false"><span class="glyphicon glyphicon-user"></span>
+              <%= displayName %> <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/cart">Cart</a></li>
+              <li class="divider"></li>
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
           <% } else { %>
             <a href="login"><span class="glyphicon glyphicon-user"></span> Log In</a>
           <% } %>
