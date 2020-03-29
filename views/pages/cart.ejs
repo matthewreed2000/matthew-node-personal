@@ -8,7 +8,7 @@
 <body>
   <%- include('../partials/header.ejs'); %>
   <main class="container-fluid">
-    <% if (typeof items !== 'undefined') { %>
+    <% if (typeof items !== 'undefined' && items.length > 0) { %>
       <div class="row d-flex f-start">
         <% items.forEach(item => { %>
           <figure class="card card-product">
@@ -38,7 +38,7 @@
     <% } %>
     <div class="row d-flex justify-content-center">
       <a href="/shop" class="btn btn-sm btn-primary">Return to Shop</a>
-      <% if (typeof items !== 'undefined') { %>
+      <% if (typeof items !== 'undefined' && items.length > 0) { %>
         <a href="/confirm" class="btn btn-sm btn-success">Proceed to Checkout</a>
       <% } %>
     </div>

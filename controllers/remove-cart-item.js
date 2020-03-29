@@ -23,10 +23,10 @@ function run(req, res) {
           res.json({success:false, error:err});
         }
         else if (typeof result.rows[0] !== 'undefined') {
-          const sqlIns = "DELETE FROM cart WHERE user_id = $1 AND id = $2";
-          const paramsIns = [result.rows[0].id, req.query.id];
+          const sqlDel = "DELETE FROM cart WHERE user_id = $1 AND id = $2";
+          const paramsDel = [result.rows[0].id, req.query.id];
 
-          pool.query(sqlIns, paramsIns, callback);
+          pool.query(sqlDel, paramsDel, callback);
         }
         else {
           res.json({success:false, err:"Nothing was returned from database for given username."});

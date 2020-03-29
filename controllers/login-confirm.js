@@ -10,20 +10,8 @@ function run(req, res) {
     res.json({success:false});
   }
 
-  let successCallback = function(displayName=null) {
-    req.session.username = req.body.username;
-    req.session.password = req.body.password;
-    if (displayName == null) {
-      req.session.displayName = req.session.username;
-    } else {
-      req.session.displayName = displayName;
-    }
-
-    res.json({success:true});
-  }
-
   if (testParamsExists(req)) {
-    testUserPassword(req.body.username, req.body.password, failCallback, successCallback);
+    testUserPassword(req.body.username, req.body.password, failCallback, (displayName=none) => {setSession(req, res,displayName)});
     // getUserPassword(req.body.username, (err, result) => {
     //   if (err) {
     //     console.log('DB Error: ', err);
@@ -48,6 +36,21 @@ function run(req, res) {
   else {
     failCallback();
   }
+}
+
+// Responds successfully
+function setSession(req, res, displayName=null) {
+  // console.log("Done did a thing");
+
+  req.session.username = req.body.username;
+  req.session.password = req.body.password;
+  if (displayName == null) {
+    req.session.displayName = req.session.username;
+  } else {
+    req.session.displayName = displayName;
+  }
+
+  res.json({success:true});
 }
 
 // Tests session, returns JSON
@@ -113,4 +116,4 @@ function getUserPassword(username, callback) {
   pool.query(sql, params, callback);
 }
 
-module.exports = {run, testSession}
+module.exports = {run, testSession, setSession}

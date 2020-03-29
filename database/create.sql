@@ -9,7 +9,7 @@ CREATE TABLE user_data (
    ID             SERIAL         NOT NULL PRIMARY KEY,
    Username       VARCHAR(100)   NOT NULL UNIQUE,
    Password       VARCHAR(100)   NOT NULL,
-   Display_Name   VARCHAR(100)   NOT NULL
+   Display_Name   VARCHAR(100)
 );
 
 CREATE TABLE item_data (

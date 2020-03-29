@@ -7,14 +7,32 @@
 <body>
   <%- include('../partials/header.ejs'); %>
   <main class="container-fluid">
-    <% if (success && total) { %>
-      <div class="row">
-        <h1>Thank you, <%= display_name %>. Your order for $<% (total / 100.0).toFixed(2) %>
-          has been placed.</h1>
-      </div>
+    <% if (typeof items !== 'undefined' && items.length > 0) { %>
+    <ul class="list-group">
+      <% items.forEach(item => { %>
+        <li class="list-group-item">
+          <span><%= item.name %></span>
+          <span class="float-right">$<%= (item.price / 100.0).toFixed(2) %></span>
+        </li>
+      <% }); %>
+      <li class="list-group-item">
+        <span>Tax:</span>
+        <span class="float-right">$<%= (tax / 100.0).toFixed(2) %></span>
+      </li>
+      <li class="list-group-item">
+        <span>Shipping:</span>
+        <span class="float-right">$<%= (shipping / 100.0).toFixed(2) %></span>
+      </li>
+      <li class="list-group-item">
+        <span>Total:</span>
+        <strong class="float-right">$<%= (total / 100.0).toFixed(2) %></strong>
+      </li>
+    </ul>
+    <% } else { %>
+      <p>There's nothing to display here</p>
     <% } %>
-    <div class="row">
-      <a href="/" class="btn btn-primary">Return to Home Page</a>
+    <div class="row d-flex justify-content-center">
+      <a href="/shop" class="btn btn-sm btn-primary">Return to Shop</a>
     </div>
   </main>
   <%- include('../partials/footer.ejs'); %>

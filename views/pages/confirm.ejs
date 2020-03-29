@@ -7,7 +7,7 @@
 <body>
   <%- include('../partials/header.ejs'); %>
   <main class="container-fluid">
-    <% if (typeof items !== 'undefined') { %>
+    <% if (typeof items !== 'undefined' && items.length > 0) { %>
     <ul class="list-group">
       <% items.forEach(item => { %>
         <li class="list-group-item">
@@ -30,7 +30,14 @@
       </li>
     </ul>
     <% } else { %>
+      <p>There's nothing in your cart to checkout.</p>
     <% } %>
+    <div class="row d-flex justify-content-center">
+      <a href="/cart" class="btn btn-sm btn-primary">Return to Cart</a>
+      <% if (typeof items !== 'undefined' && items.length > 0) { %>
+        <a href="/receipt" class="btn btn-sm btn-success">Confirm Checkout</a>
+      <% } %>
+    </div>
   </main>
   <%- include('../partials/footer.ejs'); %>
 </body>

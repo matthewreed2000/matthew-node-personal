@@ -17,7 +17,7 @@ function run(req, res) {
 
   if (obj.success) {
     const sql = "\
-    SELECT i.* FROM item_data i \
+    SELECT i.name, i.description, i.price, i.image_url, c.id FROM item_data i \
     INNER JOIN cart c ON i.id = c.item_id \
     INNER JOIN user_data u ON c.user_id = u.id \
     WHERE u.username = $1";

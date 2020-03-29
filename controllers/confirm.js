@@ -14,7 +14,7 @@ function run(req, res) {
     else {
       obj.items = result.rows;
 
-      if (typeof result.rows !== 'undefined') {
+      if (typeof result.rows !== 'undefined' && result.rows.length > 0) {
         calcTotal.calcValues(result.rows, result => {
           obj.total = result.total;
           obj.tax = result.tax;
